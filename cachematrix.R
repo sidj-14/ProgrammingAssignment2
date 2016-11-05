@@ -43,26 +43,26 @@ cacheSolve <- function(x, ...) {
 ## further computations.
 	  if(is.null(determi) || determi != 0){
 ## Getting the inverse value of special matrix
-        inv <- x$getInverse()
+        	inv <- x$getInverse()
 ## Checking if the value stored for the inverse is not NULL
-	  if(!is.null(inv)){
-	  message("getting matrix from the cached memory")
-	  return(inv)
-	  }
+	  	if(!is.null(inv)){
+	  	message("getting matrix from the cached memory")
+	  	return(inv)
+	  	}
 ## After above condition is false, implies it is a new matrix hence
 ## the function now starts computing.
-	  data <- x$get()
-	  dete <- det(data)
+	  	data <- x$get()
+	  	dete <- det(data)
 ## Checks determinant value against zero to avoid any further computation.
-	  if(dete == 0){
-	  message("Determinant of your matrix is 0. Please input another one.")
-	  x$setDeterminant(dete)
-	  return(invisible(NULL))
-	  }
-	  inv <- solve(data)
-	  x$setInverse(inv)
-	  x$setDeterminant(dete)
-	  return(inv)
+	  	if(dete == 0){
+	  	message("Determinant of your matrix is 0. Please input another one.")
+	  	x$setDeterminant(dete)
+	  	return(invisible(NULL))
+	  	}
+	  	inv <- solve(data)
+	  	x$setInverse(inv)
+	  	x$setDeterminant(dete)
+	  	return(inv)
 ## If the determinant value on computation is non zero the the else part 
 ## is executed.
 	  }else{
